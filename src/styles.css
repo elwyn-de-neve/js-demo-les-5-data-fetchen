@@ -1,0 +1,19 @@
+html {
+    font-family: "Poppins", sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+label {
+    display: block;
+}
+
+span {
+    margin-top: 1em;
+    display: block;
+    color: red;
+}
