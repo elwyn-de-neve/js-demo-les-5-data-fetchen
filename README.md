@@ -12,7 +12,13 @@
 4. Dependencies installeren: 
   - `npm install parcel --save-dev`
   - `npm install axios`
-5. Koppelen stylesheets & scripts:
+5. Scripts toevoegen aan package.json
+```
+"start" : "parcel src/index.html",
+"build" : "parcel build"
+```
+6. `src` map aanmaken
+7. Koppelen stylesheets & scripts:
 ```
 <script defer src="main.js" type="module"></script>
 <link rel="stylesheet" href="styles.css">
@@ -32,13 +38,13 @@
 11. Attributen toekennen waar nodig 
 12. Voeg data toe aan het element 
 13. Voeg alle items toe aan de list
-14. Voorkom dat de lijst twee keer gevuld wordt `list.replaceChildren`
 
 # Event listener
 1. Button in HTML creëren om de functie aan te roepen 
 2. Verwijzing maken naar element 
 3. Event listener toevoegen aan element
 4. Functie aanroep in event listener plaatsen
+5. Voorkom dat de lijst twee keer gevuld wordt `list.replaceChildren`
 
 # Parameters meegeven aan request
 1. Element in HTML creëren om input mee te geven 

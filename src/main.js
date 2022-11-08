@@ -1,65 +1,78 @@
 import axios from "axios";
 
-console.log( "Script is running" )
+console.log( "Script is running" );
 
 // 1. Data Fetchen
 
 // Create reference
-const list = document.getElementById( 'list-of-users' );
+const list = document.getElementById( "list-of-users" );
 
-// const fetchData = async () => {}
-async function fetchData( num ) {
-    const URI = 'https://jsonplaceholder.typicode.com/'
-    const ENDPOINT = 'users'
+// De syntax van een asynchrone arrow functie:
+// const fetchData = async () => { "EXECUTE CODE" }
+// De syntax voor een IIFE (Immediately Invoked Function Expression):
+// (async () => { "EXECUTE CODE" })()
 
+// Asynchrone functie (normale syntax):
+async function fetchData( id ) {
+
+    const URI = "https://jsonplaceholder.typicode.com/";
+    const ENDPOINT = "users";
 
     try {
+
         const response = await axios.get( URI + ENDPOINT, {
             params: {
-                // Geef parameters mee aan de request
-                id: num || null
+                // Geef parameters mee aan de request of laat m leeg als er geen data in het input veld staat
+                id: id || null
             }
         } );
-        console.log(response)
+        // Log de volledige response (de content zit in 'data')
+        console.log( response );
 
-        // Leeg de lijst
+        // Leeg de lijst bij aanvang
         list.replaceChildren()
 
         // Map door de data heen
         response.data.map( ( user ) => {
-            // Create new element with attributes
-            const item = document.createElement( 'li' );
-            item.setAttribute( 'class', 'username' );
-            item.textContent = user.name
-
+            const item = document.createElement( "li" );
+            item.setAttribute( "class", "username" );
+            item.textContent = user.name;
 
             // Voeg alle items toe aan list
-            list.appendChild( item )
-        } )
+            list.appendChild( item );
+        } );
 
-    } catch ( error ) {
+
+    } catch ( err ) {
+
+        // Log de errors
+        console.error( err );
 
         // Verwijzing naar error message
-        const errorMessage = document.getElementById('error-message');
+        const errorMessage = document.getElementById( "error-message" );
 
         // Check welke error message van toepassing is
-        if ( error.response.status === 404 ) {
-            errorMessage.textContent = "Page Not Found | 404"
+        if ( err.response.status === 404 ) {
+            errorMessage.textContent = "Page Not Found | 404";
         }
-        if ( error.response.status === 500 ) {
-            errorMessage.textContent = "Internal Server Error | 500"
+        if ( err.response.status === 500 ) {
+            errorMessage.textContent = "Internal Server Error | 500";
         }
+
     }
-} // IIFE --> Immediately Invoked Function Expression
 
-// PAUZE HIER!
+}
 
-// 2. Event Listeners
+// 2. Event Listener
+
 // Create reference
-const id = document.getElementById( 'user-id' )
-const btn = document.getElementById( 'button' )
+const btn = document.getElementById( "button" );
+const userId = document.getElementById( "user-id" );
 
 // Implement event listener
-btn.addEventListener( 'click', () => {
-    fetchData( id.value )
-} )
+btn.addEventListener( "click", () => {
+    // Voeg de input value toe als argument (daarom ook een callback)
+    fetchData( userId.value );
+} );
+
+

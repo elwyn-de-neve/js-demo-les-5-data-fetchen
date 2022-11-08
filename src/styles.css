@@ -17,3 +17,7 @@ span {
     display: block;
     color: red;
 }
+
+.username {
+    color: mediumpurple;
+}

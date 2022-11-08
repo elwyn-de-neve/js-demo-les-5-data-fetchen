@@ -1,15 +1,23 @@
 {
-  "name": "js-demo-les-5",
+  "name": "js-demo-les-5-data-fetchen",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "1. NPM initialiseren: `npm init`\r 2. GIT initialiseren: `git init`\r 3. GIT ignore opzetten:\r ```\r /.idea\r .parcel-chache\r /dist\r /node_modules\r ```\r 4. Dependencies installeren: \r   - `npm install parcel --save-dev`\r   - `npm install axios`\r 5. Scripts toevoegen aan package.json\r ```\r \"start\" : \"parcel src/index.html\",\r \"build\" : \"parcel build\"\r ```\r 6. `src` map aanmaken\r 7. Koppelen stylesheets & scripts:\r ```\r <script defer src=\"main.js\" type=\"module\"></script>\r <link rel=\"stylesheet\" href=\"styles.css\">\r ```",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel src/index.html",
     "build": "parcel build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elwyn-de-neve/js-demo-les-5-data-fetchen.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elwyn-de-neve/js-demo-les-5-data-fetchen/issues"
+  },
+  "homepage": "https://github.com/elwyn-de-neve/js-demo-les-5-data-fetchen#readme",
   "devDependencies": {
     "buffer": "^6.0.3",
     "parcel": "^2.7.0",
